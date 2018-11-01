@@ -15,11 +15,10 @@
                         </div>
                     </div>
                     <div class="col-sm-3 hidden-xs text-right">
-                        <a href="mailto:clarin@clarin.eu">Contact</a>
+                        <a href="mailto:sysops@clarin.eu">Contact</a>
                     </div>
                     <div class="visible-xs-block text-center">
-                        <a disabled="disabled">About</a>
-                        &nbsp;<a href="mailto:clarin@clarin.eu">Contact</a>
+                        <a href="mailto:sysops@clarin.eu">Contact</a>
                     </div>
                 </div>
             </div>
