@@ -3,12 +3,15 @@
 BASE_STYLE_VERSION="0.3.0"
 
 SCRIPT_DIR="$( cd "$(dirname "$0")" && pwd )"
-TEMPLATES_DIR="${SCRIPT_DIR}/templates"
+TEMPLATES_DIR="${SCRIPT_DIR}/template"
 BUILD_DIR="${SCRIPT_DIR}/dist"
 TMP_DIR="${SCRIPT_DIR}/tmp"
-STYLE_TARGET_DIR="${BUILD_DIR}/style"
+STYLE_TARGET_DIR="${BUILD_DIR}/style/"
 STYLE_JAR_URL="https://github.com/clarin-eric/base_style/releases/download/${BASE_STYLE_VERSION}/base-style-${BASE_STYLE_VERSION}-css-with-bootstrap.jar"
 TMP_STYLE_JAR="${TMP_DIR}/style.jar"
+
+HEADER_FILE="header.inc"
+FOOTER_FILE="footer.inc"
 
 set -e
 
@@ -22,8 +25,10 @@ main() {
 		if ! [ -e "${STYLE_TARGET_DIR}" ]; then
 			get_style
 		fi
+		
+		copy_custom_style
 	
-		apply_templates
+		(cd "$TEMPLATES_DIR" && apply_templates)
 	fi
 	
 	clean_tmp
@@ -40,8 +45,16 @@ get_style() {
 	(cd "${STYLE_TARGET_DIR}" && unzip "${TMP_STYLE_JAR}") > /dev/null
 }
 
+copy_custom_style() {
+	echo "Merging custom style content..."
+	rsync -a "${SCRIPT_DIR}/style"/* "${STYLE_TARGET_DIR}"
+}
+
 apply_templates() {
-	echo TODO
+	for f in `ls *.html`; do
+		echo $f
+		cat "$HEADER_FILE" "$f" "$FOOTER_FILE" > "${BUILD_DIR}/"$(basename "$f")
+	done
 }
 
 clean() {
