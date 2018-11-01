@@ -9,12 +9,12 @@ addons:
     - bsdtar
 script:
   - sh -x ./build.sh
-  - tar zcvf dist-${TRAVIS_TAG}.tgz dist
+  - tar zcvf dist-${TRAVIS_TAG}.tar.gz dist
 deploy:
   api_key:
     secure: "$DEPLOY_OAUTH_TOKEN"
   file:
-    - "dist-${TRAVIS_TAG}.tgz"
+    - "dist-${TRAVIS_TAG}.tar.gz"
   on:
     tags: true
   overwrite: true
