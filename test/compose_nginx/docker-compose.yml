@@ -8,5 +8,5 @@ services:
      - 8580
     volumes:
       - ./default.conf:/etc/nginx/conf.d/default.conf
-      - ../dist:/srv/custom-pages/dist
+      - ../../dist:/srv/custom-pages/dist
     restart: unless-stopped
