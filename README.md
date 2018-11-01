@@ -18,7 +18,11 @@ For example in nginx:
 
 	location ^~ /error/ {
 		internal;
-		root /var/www/error-maintenance-pages/dist;
+		alias /srv/error-maintenance-pages/dist/;
+	}
+	
+	location ^~ /error_inc/style {
+		alias /srv/error-maintenance-pages/dist/style/;
 	}
 ```
 
@@ -34,7 +38,7 @@ For example, for the vlo.clarin.eu vhost configuration:
 ```nginx
 
     location / {
-        if (-f /var/www_state/maintenance/vlo_on) {
+        if (-f /srv/www_state/maintenance/vlo_on) {
             return 503;
         }
 
@@ -42,5 +46,5 @@ For example, for the vlo.clarin.eu vhost configuration:
     }
 ```
 
-Make the file `/var/www_state/maintenance/vlo_on` available to put the application in
+Make the file `/srv/www_state/maintenance/vlo_on` available to put the application in
 maintenance mode without having to make any changes to the configuration.

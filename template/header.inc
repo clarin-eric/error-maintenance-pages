@@ -8,8 +8,8 @@
         <title>CLARIN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="style/css/bootstrap-clarin.css" type="text/css"/>
-        <link rel="stylesheet" href="style/css/clarin-maintenance.css" type="text/css"/>
+        <link rel="stylesheet" href="/error_inc/style/css/bootstrap-clarin.css" type="text/css"/>
+        <link rel="stylesheet" href="/error_inc/style/css/clarin-maintenance.css" type="text/css"/>
             
 	</head>
     <body>

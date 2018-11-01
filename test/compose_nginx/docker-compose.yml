@@ -1,0 +1,12 @@
+version: '2'
+services:
+  nginx:
+    image: registry.gitlab.com/clarin-eric/docker-alpine-nginx:2.0.3
+    ports:
+      - 8580:8580
+    expose:
+     - 8580
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ../dist:/srv/custom-pages/dist
+    restart: unless-stopped
