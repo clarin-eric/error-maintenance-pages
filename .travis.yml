@@ -1,0 +1,26 @@
+sudo: false
+language: bash
+git:
+  depth: 1
+addons:
+  apt:
+    packages:
+    - curl
+    - bsdtar
+script:
+  - sh -x ./build.sh
+  - tar zcvf dist-${TRAVIS_TAG}.tgz dist
+deploy:
+  api_key:
+    secure: "$DEPLOY_OAUTH_TOKEN"
+  file:
+    - "dist-${TRAVIS_TAG}.tgz"
+  on:
+    tags: true
+  overwrite: true
+  provider: releases
+  skip_cleanup: true
+notifications:
+  email:
+    on_success: change
+on_failure: always
