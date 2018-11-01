@@ -14,7 +14,10 @@
 	</head>
     <body>
         <header id="header" role="banner">
-            <div class="navbar-static-top  navbar-default navbar" role="navigation">
+	        <div class="clarin-top visible-xs">
+                <a class="logo center-block" href="http://www.clarin.eu"></a>
+            </div>
+            <div class="navbar-static-top  navbar-default navbar hidden-xs" role="navigation">
 				<div class="container">
 					<div class="navbar-header"></div>
 					<div class="collapse navbar-collapse" role="navigation">
@@ -22,7 +25,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="http://www.clarin.eu/" class="clarin-logo hidden-xs">
+                            <a href="http://www.clarin.eu/" class="clarin-logo">
             					<span>CLARIN</span>
                             </a>
                         </li>

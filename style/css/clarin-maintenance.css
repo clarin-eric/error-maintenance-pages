@@ -22,7 +22,21 @@
 }
 
 
-.navbar-nav a.clarin-logo {
+#header .clarin-top {
+	background-color: #eee;
+	border-bottom: 1px solid #d5d5d5;
+	padding: .5em 0;
+}
+
+#header .clarin-top	.logo {
+	width: 10em;
+	height: 4em;
+	background-image: url('../images/clarin-logo-wide.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+#header .navbar-nav a.clarin-logo {
 	min-height: 50px;
 	width: 119px;
 	background-image: url('../images/clarin-logo-wide.png');
@@ -32,10 +46,10 @@
 	background-repeat: no-repeat;
 }
 
-.navbar-nav a.clarin-logo span {
+#header .navbar-nav a.clarin-logo span {
 	display: none;
 }
 
-.navbar-nav a.clarin-logo :hover {
+#header .navbar-nav a.clarin-logo :hover {
 	background-color: inherit;
 }
